@@ -1,4 +1,9 @@
 // Nav toggle & smooth scroll
+function bindTap(el, handler){
+  if (!el) return;
+  el.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); handler(e); }, {passive:false});
+  el.addEventListener('touchend', (e)=>{ e.preventDefault(); e.stopPropagation(); handler(e); }, {passive:false});
+}
 function setMobileMenu(open){
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.getElementById('menu');
@@ -143,4 +148,32 @@ document.getElementById('leadForm')?.addEventListener('submit', (e) => {
   const payload = Object.fromEntries(fd.entries());
   console.log('Lead payload:', payload);
   alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Header may be injected dynamically; poll for buttons briefly
+  const tryBind = () => {
+    const toggleBtn = document.querySelector('.nav__toggle');
+    const closeBtn  = document.querySelector('.nav__close');
+    if (toggleBtn && !toggleBtn.__bound){
+      bindTap(toggleBtn, ()=>{
+        const menu = document.getElementById('menu');
+        const isOpen = !!menu && menu.classList.contains('open');
+        setMobileMenu(!isOpen);
+      });
+      toggleBtn.__bound = true;
+    }
+    if (closeBtn && !closeBtn.__bound){
+      bindTap(closeBtn, ()=> setMobileMenu(false));
+      closeBtn.__bound = true;
+    }
+  };
+  tryBind();
+  // Re-try a few times in case header loaded after include.js
+  let tries = 0;
+  const iv = setInterval(()=>{
+    tryBind();
+    tries++;
+    if (tries > 20) clearInterval(iv);
+  }, 150);
 });
