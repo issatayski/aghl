@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Агрохимикаты и удобрения — Главная</title>
+  <meta name="description" content="Продажа сертифицированных агрохимикатов и удобрений. Доставка по Казахстану, консультации агронома." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="include.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Header include target -->
+  <div data-include="header.html"></div>
+
+  <!-- 2. Герой-блок -->
+  <section id="hero" class="section hero">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <h1>Надёжные агрохимикаты и удобрения для высокого урожая</h1>
+        <p class="lead">Сертифицированная продукция, быстрая доставка по регионам, подбор под культуры и задачи.</p>
+        <div class="hero__cta">
+          <a class="btn btn-primary" href="#cta">Получить консультацию</a>
+          <a class="btn btn-outline" href="#catalog">Смотреть каталог</a>
+        </div>
+        <ul class="bullets">
+          <li>✔ Поставки оптом и в розницу</li>
+          <li>✔ Консультации агронома</li>
+          <li>✔ Гарантии и сертификаты</li>
+        </ul>
+      </div>
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__img"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. О компании -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>О компании</h2>
+      <p>Мы снабжаем фермерские хозяйства, агрокомпании и дистрибьюторов удобрениями, пестицидами и средствами защиты растений. Работаем по Казахстану и Центральной Азии, обеспечивая стабильные поставки и поддержку агрономов.</p>
+      <div class="cards three">
+        <article class="card">
+          <h3>5+ лет на рынке</h3>
+          <p>Опыт команд и поставок в сложных сезонах.</p>
+        </article>
+        <article class="card">
+          <h3>Сертифицировано</h3>
+          <p>Соответствие стандартам, проверенные поставщики.</p>
+        </article>
+        <article class="card">
+          <h3>Складская сеть</h3>
+          <p>Быстрая логистика и отгрузки день-в-день.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Каталог продукции -->
+  <section id="catalog" class="section section-muted">
+    <div class="container">
+      <h2>Каталог продукции</h2>
+      <div class="tabs" role="tablist" aria-label="Категории продукции">
+        <button class="tab active" data-tab="fert">Удобрения</button>
+        <button class="tab" data-tab="herb">Гербициды</button>
+        <button class="tab" data-tab="insect">Инсектициды</button>
+        <button class="tab" data-tab="fungi">Фунгициды</button>
+        <button class="tab" data-tab="growth">Стимуляторы роста</button>
+      </div>
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Продукты рендерятся JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Преимущества -->
+  <section id="benefits" class="section">
+    <div class="container">
+      <h2>Почему выбирают нас</h2>
+      <div class="cards four">
+        <article class="card icon">
+          <div class="icon-circle">✓</div>
+          <h3>Качество</h3>
+          <p>Официальные сертификаты и стабильный состав.</p>
+        </article>
+        <article class="card icon">
+          <div class="icon-circle">🚚</div>
+          <h3>Доставка</h3>
+          <p>Оперативная логистика по Казахстану и ЦА.</p>
+        </article>
+        <article class="card icon">
+          <div class="icon-circle">👩‍🌾</div>
+          <h3>Экспертиза</h3>
+          <p>Подбор схем внесения под ваши культуры.</p>
+        </article>
+        <article class="card icon">
+          <div class="icon-circle">💬</div>
+          <h3>Поддержка</h3>
+          <p>Агроном-консультант на связи в сезон.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Решения / кейсы -->
+  <section id="solutions" class="section section-muted">
+    <div class="container">
+      <h2>Решения для агробизнеса</h2>
+      <div class="cards three">
+        <article class="card">
+          <h3>Фермерские хозяйства</h3>
+          <p>Схемы питания под пшеницу, кукурузу, подсолнечник, сахарную свёклу.</p>
+        </article>
+        <article class="card">
+          <h3>Агрокомпании</h3>
+          <p>Контракты, графики поставок, контроль качества на всём цикле.</p>
+        </article>
+        <article class="card">
+          <h3>Дистрибьюторы</h3>
+          <p>Оптовые цены, маркетинговые материалы, обучение продавцов.</p>
+        </article>
+      </div>
+      <div class="case">
+        <strong>Кейс:</strong> «Комплексное питание и защита рапса ↑ урожайность на 18% за сезон»
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Калькулятор / подбор -->
+  <section id="calculator" class="section">
+    <div class="container">
+      <h2>Подбор удобрений под вашу культуру</h2>
+      <form id="pickForm" class="form-grid" novalidate>
+        <label>
+          Культура
+          <select name="crop" required>
+            <option value="">Выберите…</option>
+            <option>Пшеница</option>
+            <option>Кукуруза</option>
+            <option>Подсолнечник</option>
+            <option>Картофель</option>
+            <option>Ячмень</option>
+          </select>
+        </label>
+        <label>
+          Площадь, га
+          <input type="number" name="area" min="1" step="0.1" placeholder="Напр. 50" required />
+        </label>
+        <label>
+          Задача
+          <select name="goal" required>
+            <option value="">Выберите…</option>
+            <option>Увеличить урожайность</option>
+            <option>Усилить стартовый рост</option>
+            <option>Снизить стресс засухи</option>
+            <option>Устранить дефицит NPK</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" type="submit">Рассчитать схему</button>
+      </form>
+      <div id="pickResult" class="result"></div>
+    </div>
+  </section>
+
+  <!-- 8. Сертификаты -->
+  <section id="certs" class="section section-muted">
+    <div class="container">
+      <h2>Сертификаты и гарантии</h2>
+      <div class="certs">
+        <div class="cert">Сертификат соответствия</div>
+        <div class="cert">Лабораторные протоколы</div>
+        <div class="cert">Лицензии и допуски</div>
+      </div>
+      <p class="muted">* Изображения и номера документов размещаются после заключения договора.</p>
+    </div>
+  </section>
+
+  <!-- 9. Отзывы -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <h2>Отзывы клиентов</h2>
+      <div class="cards three">
+        <blockquote class="card quote">
+          <p>«Удобрения стабильно высокого качества. Пшеница дала плюс 0,7 т/га.»</p>
+          <cite>КФХ «Ак-Булак», Костанайская область</cite>
+        </blockquote>
+        <blockquote class="card quote">
+          <p>«Оперативная поставка и грамотная консультация по гербицидам.»</p>
+          <cite>Агрокомпания «Жер-Ана», Алматинская область</cite>
+        </blockquote>
+        <blockquote class="card quote">
+          <p>«Подбор схемы питания по картофелю помог выровнять качество клубня.»</p>
+          <cite>ФХ «Береке», Жамбылская область</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. География поставок -->
+  <section id="geo" class="section section-muted">
+    <div class="container">
+      <h2>География поставок</h2>
+      <p>Работаем по всем регионам Казахстана и поставляем в страны Центральной Азии.</p>
+      <div class="map-placeholder" aria-hidden="true">[Карта поставок/склады]</div>
+    </div>
+  </section>
+
+  <!-- 11. CTA -->
+  <section id="cta" class="section cta">
+    <div class="container cta__grid">
+      <div>
+        <h2>Нужна консультация агронома?</h2>
+        <p>Оставьте контакты — свяжемся и подберём решение под ваши культуры и задачи.</p>
+      </div>
+      <form id="leadForm" class="form-grid" novalidate>
+        <label>
+          Имя
+          <input type="text" name="name" required placeholder="Ваше имя" />
+        </label>
+        <label>
+          Телефон / WhatsApp
+          <input type="tel" name="phone" required placeholder="+7 XXX XXX XX XX" />
+        </label>
+        <label class="wide">
+          Интересующая продукция
+          <input type="text" name="product" placeholder="Напр. карбамид, гербицид по пшенице" />
+        </label>
+        <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        <p class="muted small">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer include target -->
+  <div data-include="footer.html"></div>
+
+</body>
+</html>
