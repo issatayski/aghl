@@ -1,7 +1,7 @@
-// Simple include loader for header/footer (works when served over HTTP/HTTPS)
-document.addEventListener('DOMContentLoaded', () => {
-  const includeTargets = document.querySelectorAll('[data-include]');
-  includeTargets.forEach(async (el) => {
+// Simple include loader for header/footer with completion event
+document.addEventListener('DOMContentLoaded', async () => {
+  const includeTargets = Array.from(document.querySelectorAll('[data-include]'));
+  await Promise.all(includeTargets.map(async (el) => {
     const url = el.getAttribute('data-include');
     try{
       const res = await fetch(url);
@@ -10,5 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }catch(err){
       console.error('Include error:', url, err);
     }
-  });
+  }));
+  document.dispatchEvent(new CustomEvent('includes:loaded'));
 });
