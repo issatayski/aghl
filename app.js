@@ -1,11 +1,22 @@
 // Nav toggle & smooth scroll
+function setMobileMenu(open){
+  const toggle = document.querySelector('.nav__toggle');
+  const menu = document.getElementById('menu');
+  const closeBtn = document.querySelector('.nav__close');
+  if (!menu) return;
+  menu.classList.toggle('open', !!open);
+  if (toggle) toggle.setAttribute('aria-expanded', String(!!open));
+  if (closeBtn) closeBtn.style.visibility = open ? 'visible' : 'hidden';
+}
 document.addEventListener('click', (e) => {
   const t = e.target;
   if (t.matches('.nav__toggle')){
     const menu = document.getElementById('menu');
-    const expanded = t.getAttribute('aria-expanded') === 'true';
-    t.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('open');
+    const isOpen = menu?.classList.contains('open');
+    setMobileMenu(!isOpen);
+  }
+  if (t.matches('.nav__close')){
+    setMobileMenu(false);
   }
   if (t.matches('a[href^="#"]')){
     const id = t.getAttribute('href');
@@ -13,6 +24,10 @@ document.addEventListener('click', (e) => {
     if(target){
       e.preventDefault();
       target.scrollIntoView({behavior:'smooth', block:'start'});
+      setMobileMenu(false);
+    }
+  }
+});
       const menu = document.getElementById('menu');
       menu && menu.classList.remove('open');
     }
