@@ -230,3 +230,45 @@ input:focus,select:focus,textarea:focus{outline:2px solid #ccebd6;border-color:#
   .header__phone{ display:none; }
 }
 
+
+.nav{position:relative}
+
+/* --- Mobile Full-Screen Menu Overlay (final v2) --- */
+@media (max-width: 680px){
+  .nav__toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;height:40px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    position: relative;
+    z-index: 1300;
+  }
+  .menu{
+    position: fixed;
+    inset: 0;
+    background:#ffffff;
+    padding: 64px 20px 24px;
+    display:none;
+    flex-direction:column;
+    gap:22px;
+    justify-content:center;
+    align-items:center;
+    z-index: 1200;
+  }
+  .menu.open{ display:flex; }
+  .nav__close{
+    position: fixed;
+    top: 14px; right: 16px;
+    z-index: 1301;
+    display:none;
+    align-items:center; justify-content:center;
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fff; font-size: 22px;
+  }
+  .menu.open ~ .nav__close{ display:inline-flex; }
+}
