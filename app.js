@@ -9,21 +9,32 @@ function setMobileMenu(open){
   if (closeBtn) closeBtn.style.visibility = open ? 'visible' : 'hidden';
 }
 document.addEventListener('click', (e) => {
-  const t = e.target;
-  if (t.matches('.nav__toggle')){
+  const toggleBtn = e.target.closest('.nav__toggle');
+  const closeBtn  = e.target.closest('.nav__close');
+  const anchor    = e.target.closest('a[href^="#"]');
+
+  if (toggleBtn){
+    e.preventDefault();
     const menu = document.getElementById('menu');
-    const isOpen = menu?.classList.contains('open');
+    const isOpen = !!menu && menu.classList.contains('open');
     setMobileMenu(!isOpen);
+    return;
   }
-  if (t.matches('.nav__close')){
+  if (closeBtn){
+    e.preventDefault();
     setMobileMenu(false);
+    return;
   }
-  if (t.matches('a[href^="#"]')){
-    const id = t.getAttribute('href');
+  if (anchor){
+    const id = anchor.getAttribute('href');
     const target = document.querySelector(id);
-    if(target){
+    if (target){
       e.preventDefault();
       target.scrollIntoView({behavior:'smooth', block:'start'});
+      setMobileMenu(false);
+    }
+  }
+});
       setMobileMenu(false);
     }
   }

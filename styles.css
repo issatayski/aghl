@@ -137,15 +137,24 @@ input:focus,select:focus,textarea:focus{outline:2px solid #ccebd6;border-color:#
   .catalog-grid{grid-template-columns:1fr 1fr}
   .form-grid{grid-template-columns:1fr}
   .nav__toggle{display:inline-block}
-  .menu{display:none} /* replaced by full-screen overlay rules below */
-  .header__phone{display:none}
+  
 }
 
 
-/* --- Mobile Full-Screen Menu Overlay --- */
+
+
+
+/* --- Mobile Full-Screen Menu Overlay (robust) --- */
 @media (max-width: 680px){
-  .nav__close{
-    display:none;
+  .nav__toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;height:40px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    z-index:1001;
   }
   .menu{
     position: fixed;
@@ -154,32 +163,31 @@ input:focus,select:focus,textarea:focus{outline:2px solid #ccebd6;border-color:#
     padding: 64px 20px 24px;
     display:none;
     flex-direction:column;
-    gap:18px;
+    gap:22px;
     justify-content:center;
     align-items:center;
     z-index: 999;
   }
   .menu.open{ display:flex; }
 
-  /* Close button in the top-right corner when menu is open */
-  .menu.open + .header__phone{ display:none; } /* safeguard */
   .nav__close{
     position: fixed;
     top: 14px;
     right: 16px;
-    z-index: 1000;
-    display: inline-flex;
+    z-index: 1002;
+    display:none;
     align-items:center;
     justify-content:center;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 10px;
     border: 1px solid var(--line);
     background: #fff;
     font-size: 22px;
   }
-  /* Ensure toggle button remains visible in header; close button only when menu open */
-  .nav__close{ visibility:hidden; }
-  .menu.open ~ .nav__close{ visibility:visible; } /* fallback if structure changes */
+  /* Show close when menu is open (sibling is after UL) */
+  .menu.open ~ .nav__close{ display:inline-flex; }
+
+  .header__phone{ display:none; }
 }
 
